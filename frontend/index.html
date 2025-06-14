@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disare - Mental Health Assistant</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="welcome-content">
+                <h1>Welcome to Disare</h1>
+                <p>Your AI-powered mental health companion</p>
+                <button class="primary-button" onclick="startApp()">Get Started</button>
+            </div>
+        </div>
+
+        <!-- Mood Tracker Screen -->
+        <div id="mood-screen" class="screen">
+            <h2>How are you feeling?</h2>
+            <div class="mood-buttons">
+                <button class="mood-button" data-mood="5">🟢 Great</button>
+                <button class="mood-button" data-mood="4">🟡 Good</button>
+                <button class="mood-button" data-mood="3">🟠 Okay</button>
+                <button class="mood-button" data-mood="2">🟣 Not Good</button>
+                <button class="mood-button" data-mood="1">🔴 Terrible</button>
+            </div>
+            <textarea id="mood-comment" placeholder="Add a note (optional)"></textarea>
+            <button class="primary-button" onclick="submitMood()">Save</button>
+        </div>
+
+        <!-- Chat Screen -->
+        <div id="chat-screen" class="screen">
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Type your message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+
+        <!-- Journal Screen -->
+        <div id="journal-screen" class="screen">
+            <h2>Sleep & Nutrition</h2>
+            <div class="journal-form">
+                <div class="form-group">
+                    <label>Sleep Start</label>
+                    <input type="datetime-local" id="sleep-start">
+                </div>
+                <div class="form-group">
+                    <label>Sleep End</label>
+                    <input type="datetime-local" id="sleep-end">
+                </div>
+                <div class="form-group">
+                    <label>Today's Nutrition</label>
+                    <textarea id="nutrition-notes" placeholder="What did you eat today?"></textarea>
+                </div>
+                <button class="primary-button" onclick="saveJournal()">Save Entry</button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="bottom-nav">
+            <button onclick="showScreen('mood-screen')">Mood</button>
+            <button onclick="showScreen('chat-screen')">Chat</button>
+            <button onclick="showScreen('journal-screen')">Journal</button>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 
